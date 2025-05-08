@@ -1,35 +1,49 @@
-<!DOCTYPE html>
 {% load static %}
+<!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
     <title>{% block title %}UniSphere{% endblock %}</title>
-    <link rel="stylesheet" href="{% static 'styles/main.css' %}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
-          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" 
-          crossorigin="anonymous">
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+          crossorigin="anonymous" />
+
+    <!-- Your static CSS (may not be loading, see logs) -->
+    <link rel="stylesheet" href="{% static 'styles/main.css' %}">
+
+    <!-- Inline CSS FIX for logo size -->
+    <style>
+        .navbar-logo {
+            height: 30px;
+            width: auto;
+            object-fit: contain;
+            border-radius: 6px;
+        }
+    </style>
 </head>
 <body class="landing_body">
 
 <!-- Navbar -->
-<nav class="navbar navbar-expand-lg custom-navbar">
-    <a class="navbar-brand" href="{% url 'landing_page' %}">
-        <img src="{% static 'images/main_logo.jpeg' %}" alt="Logo">
-        UniSphere
+<nav class="navbar navbar-expand-lg custom-navbar unisphere-navbar">
+    <a class="navbar-brand d-flex align-items-center" href="{% url 'landing_page' %}" style="gap: 10px;">
+        <img src="{% static 'images/main_logo.jpeg' %}" alt="UniSphere Logo" class="navbar-logo" />
+        <span style="font-size: 1.6rem; font-weight: 400; color:  #0056b3;">UniSphere</span>
     </a>
-    
-    
+
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
             aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
+    
 
     <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+        <ul class="navbar-nav mx-auto">
             <li class="nav-item"><a class="nav-link" href="{% url 'about_us' %}">About Us</a></li>
             <li class="nav-item"><a class="nav-link" href="{% url 'job_search' %}">Job Portal</a></li>
-            <a class="nav-link" href="{% url 'group_discovery' %}">Groups</a>
+            <li class="nav-item"><a class="nav-link" href="{% url 'group_discovery' %}">Groups</a></li>
             <li class="nav-item"><a class="nav-link" href="{% url 'events' %}">Events</a></li>
             <li class="nav-item"><a class="nav-link" href="{% url 'project_list' %}">Projects</a></li>
             <li class="nav-item"><a class="nav-link" href="{% url 'contact_us' %}">Contact Us</a></li>
@@ -37,9 +51,10 @@
 
         {% if user.is_authenticated %}
         <div class="dropdown">
-            <a class="btn btn-outline-success dropdown-toggle d-flex align-items-center" href="#" role="button" id="userDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <a class="btn btn-outline-light dropdown-toggle d-flex align-items-center" href="#" id="userDropdown"
+               role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 {% if user.profile.profile_pic %}
-                    <img src="{{ user.profile.profile_pic.url }}" class="navbar-avatar mr-2" alt="avatar">
+                    <img src="{{ user.profile.profile_pic.url }}" class="navbar-avatar mr-2" alt="avatar" />
                 {% endif %}
                 {{ user.username }}
             </a>
@@ -50,7 +65,7 @@
         </div>
         {% else %}
         <a href="{% url 'register' %}" class="btn btn-join-now ml-2">Join Now</a>
-        <a href="{% url 'login' %}" class="btn btn-outline-success ml-2">Login</a>
+        <a href="{% url 'login' %}" class="btn btn-outline-light ml-2">Login</a>
         {% endif %}
     </div>
 </nav>
