@@ -1,7 +1,7 @@
 # UniSphere
 UniSphere is a comprehensive web platform created to support international students throughout their university journey. Developed as a group project for our "Software Engineering" course, UniSphere offers tools to simplify student life, foster community, and provide access to vital campus resources.
 
-The platform empowers users to create personalized profiles, discover verified student groups, explore housing options, and access job listings—all within one integrated system.
+The platform empowers users to create personalized profiles, discover verified student groups, explore projects, and access job listings—all within one integrated system.
 
 🔑 Key Features
 
