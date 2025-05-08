@@ -20,7 +20,7 @@ body {
 }
 
 .navbar a {
-    color: #fff;
+    color: #ffffff;
     font-weight: bold;
     text-decoration: none;
     padding: 10px 15px;
@@ -29,8 +29,8 @@ body {
 }
 
 .navbar a:hover {
-    background-color: #000;
-    color: #fef7de;
+    background-color: #201919;
+    color: #fffffe;
 }
 
 /*===============================
