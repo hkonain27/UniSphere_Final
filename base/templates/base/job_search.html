@@ -1,0 +1,48 @@
+{% extends 'base/layout.html' %}
+{% load static %}
+
+{% block content %}
+<section class="job-search-section">
+    <h1 class="section-title">💼 Explore Job Opportunities</h1>
+    <p class="section-subtitle">Browse internships and jobs tailored for international students</p>
+
+    <form method="GET" class="job-filter-form">
+        <input type="text" name="title" placeholder="🔍 Job Title" value="{{ request.GET.title }}">
+        <input type="text" name="location" placeholder="📍 Location" value="{{ request.GET.location }}">
+        <button type="submit">Search</button>
+    </form>
+
+    {% if jobs %}
+    <div class="job-table-container">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>📰 Title</th>
+                    <th>🏢 Company</th>
+                    <th>📍 Location</th>
+                    <th>📌 HQ</th>
+                    <th>🔗 Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for job in jobs %}
+                <tr>
+                    <td>{{ forloop.counter }}</td>
+                    <td>{{ job.jobtitle }}</td>         <!-- Corrected -->
+                    <td>{{ job.compname }}</td>         <!-- Corrected -->
+                    <td>{{ job.location }}</td>
+                    <td>{{ job.complocation }}</td>
+                    <td>
+                        <a href="{% url 'job_detail' job.id %}" class="btn btn-outline-primary btn-sm">View Details</a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    {% else %}
+        <p class="text-muted">No jobs found. Try different filters or check back later.</p>
+    {% endif %}
+</section>
+{% endblock %}

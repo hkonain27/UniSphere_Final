@@ -1,0 +1,46 @@
+{% extends 'base/layout.html' %}
+{% load static %}
+
+{% block content %}
+
+<main class="about_us" style="padding: 40px; max-width: 900px; margin: auto; font-family: Arial, sans-serif;">
+    <header style="text-align: center; margin-bottom: 30px;">
+        <h1 style="font-size: 2.5rem; margin-bottom: 10px;">🌐 About Us</h1>
+        <p style="color: #555; font-size: 1.1rem;">
+            Supporting the international student community through meaningful connection and engagement 🤝
+        </p>
+    </header>
+
+    <section>
+        <p style="font-size: 1.05rem; line-height: 1.7; color: #333;">
+            <strong>UniSphere</strong> is a global community platform created to support international students 🌍 throughout their university journey. 
+            We aim to foster a welcoming environment that helps students transition smoothly into campus life, form lasting friendships, 
+            and access valuable opportunities and resources 📚.
+        </p>
+
+        <p style="font-size: 1.05rem; line-height: 1.7; color: #333; margin-top: 20px;">
+            Built with international students in mind, UniSphere promotes inclusivity and cultural exchange ✨. We provide a space for students to find 
+            verified housing 🏠, connect with trusted student associations, RSVP to exciting events 📅, and share their experiences 
+            in a vibrant and supportive environment.
+        </p>
+    </section>
+
+    <section style="margin-top: 40px;">
+        <h2 style="font-size: 1.8rem; border-bottom: 2px solid #089206; padding-bottom: 8px; margin-bottom: 15px;">🎯 Our Mission</h2>
+        <p style="font-size: 1.05rem; line-height: 1.7; color: #333;">
+            To connect and uplift international students by offering tailored support services, reliable networks, and opportunities that promote 
+            belonging, growth, and academic success 🏆.
+        </p>
+    </section>
+
+    <section class="image-section" style="margin-top: 50px; text-align: center;">
+        <img src="{% static 'images/about_us.jpg' %}" 
+             alt="Students connecting on campus" 
+             style="max-width: 60%; border-radius: 12px; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);">
+        <p style="font-style: italic; color: #666; margin-top: 15px;">
+            🌟 Bringing international students together to shape a brighter academic journey.
+        </p>
+    </section>
+</main>
+
+{% endblock %}

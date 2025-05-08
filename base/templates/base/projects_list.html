@@ -1,0 +1,64 @@
+{% extends 'base/layout.html' %}
+{% load static %}
+
+{% block content %}
+<div class="unisphere-projects-container">
+    <div class="projects-header d-flex justify-content-between align-items-center">
+        <h1 class="section-title">🚀 Projects</h1>
+        <a href="{% url 'add-project' %}" class="btn btn-success">+ Add New Project</a>
+    </div>
+    <hr>
+
+    {% if projects %}
+    <ul class="project-list list-unstyled">
+        {% for project in projects %}
+        <li class="project-card border rounded p-3 mb-4 shadow-sm">
+            <h3 class="project-title">{{ project.title }}</h3>
+            <p class="project-description">{{ project.description }}</p>
+
+            {% if project.link %}
+            <p><a href="{{ project.link }}" target="_blank" class="project-link">🌐 View Project</a></p>
+            {% endif %}
+
+            <p class="project-meta">👤 Created by: {{ project.user.username }} on {{ project.created|date:"F j, Y" }}</p>
+
+            <!-- 🗑️ Delete Button -->
+            {% if project.user == request.user %}
+            <form method="POST" action="{% url 'delete_project' project.id %}" class="d-inline">
+                {% csrf_token %}
+                <button type="submit" class="btn btn-sm btn-danger">🗑️ Delete</button>
+            </form>
+            {% endif %}
+
+            <!-- 💬 Comments -->
+            <div class="project-comments mt-4">
+                <h5>💬 Comments</h5>
+                {% for comment in project.comments.all %}
+                <div class="border rounded p-2 mb-2">
+                    <strong>{{ comment.user.username }}</strong>: {{ comment.text }}<br>
+                    <small class="text-muted">{{ comment.timestamp|date:"M d, Y H:i" }}</small>
+                </div>
+                {% empty %}
+                <p class="text-muted">No comments yet.</p>
+                {% endfor %}
+            </div>
+
+            {% if user.is_authenticated %}
+            <form method="POST" action="{% url 'add_comment' project.id %}">
+                {% csrf_token %}
+                <div class="mb-2">
+                    <textarea name="text" class="form-control" rows="2" placeholder="Add a comment..."></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary btn-sm">Comment</button>
+            </form>
+            {% else %}
+            <p><a href="{% url 'login' %}">Log in</a> to comment.</p>
+            {% endif %}
+        </li>
+        {% endfor %}
+    </ul>
+    {% else %}
+    <p class="muted">No projects posted yet. Be the first to share your work!</p>
+    {% endif %}
+</div>
+{% endblock %}

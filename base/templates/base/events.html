@@ -1,0 +1,41 @@
+{% extends 'base/layout.html' %}
+{% block content %}
+<div class="container mt-5">
+    <h1 class="section-title">📅 Upcoming Events</h1>
+    <p class="section-subtitle">Stay connected and explore new opportunities curated for international students.</p>
+
+    {% if events %}
+    <div class="row">
+        {% for event in events %}
+        <div class="col-md-6 mb-4">
+            <div class="card p-3 shadow-sm">
+                <h3 class="card-title">🎉 {{ event.title }}</h3>
+                <p><strong>Date:</strong> {{ event.date }}</p>
+                <p><strong>Location:</strong> {{ event.location }}</p>
+                <p><strong>Hosted by:</strong> {{ event.department }}</p>
+                <p>{{ event.description }}</p>
+
+                {% if request.user.is_authenticated %}
+                    {% if request.user.profile in event.attendees.all %}
+                        <form method="POST" action="{% url 'leave_event' event.id %}">
+                            {% csrf_token %}
+                            <button type="submit" class="btn btn-danger mt-2">❌ Leave Event</button>
+                        </form>
+                    {% else %}
+                        <form method="POST" action="{% url 'join_event' event.id %}">
+                            {% csrf_token %}
+                            <button type="submit" class="btn btn-outline-primary mt-2">Join Event</button>
+                        </form>
+                    {% endif %}
+                {% else %}
+                    <a href="{% url 'login' %}?next={% url 'events' %}" class="btn btn-outline-secondary mt-2">Login to Join</a>
+                {% endif %}
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    {% else %}
+        <p class="text-muted">No upcoming events yet. Stay tuned!</p>
+    {% endif %}
+</div>
+{% endblock %}

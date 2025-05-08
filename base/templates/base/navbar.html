@@ -1,0 +1,62 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Navbar with Logo</title>
+    <style>
+        /* === Navbar Styles === */
+        .navbar {
+            display: flex;
+            align-items: center;
+            gap: 25px;
+            padding: 15px 30px;
+            background-color: #089206;
+        }
+
+        .navbar a {
+            color: white;
+            font-weight: bold;
+            text-decoration: none;
+            padding: 8px 12px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .navbar a:hover {
+            background-color: #066904;
+        }
+
+        .navbar-logo img {
+            height: 40px;
+            vertical-align: middle;
+            border-radius: 8px;
+            margin-right: 10px;
+        }
+
+        .navbar-logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+    </style>
+</head>
+<body>
+
+<nav class="navbar">
+    <!-- Logo with Home Link -->
+    <a href="/" class="navbar-logo">
+        <img src="{% static 'images/main_logo.jpeg' %}" alt="UniSphere Logo">
+        Home
+    </a>
+
+    <a href="/about-us/">About Us</a>
+    <a href="/jobs/">Job Portal</a>
+    <a href="/groups/">Groups</a>
+    <a href="/events/">Events</a>
+    <a href="/projects/">Projects</a>
+    <a href="/contact-us/">Contact Us</a>
+</nav>
+
+</body>
+</html>

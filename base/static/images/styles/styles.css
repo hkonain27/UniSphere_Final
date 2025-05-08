@@ -1,0 +1,377 @@
+/* ========== GENERAL ========== */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #fffdf5;
+    color: #333;
+}
+
+/* ========== NAVBAR ========== */
+.unisphere-navbar {
+    background-color: #089206;
+    padding: 16px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.unisphere-navbar .navbar-brand {
+    color: white;
+    font-weight: bold;
+    font-size: 1.5rem;
+    text-decoration: none;
+}
+
+.unisphere-navbar .nav-link {
+    color: white;
+    font-weight: bold;
+    margin: 0 10px;
+    text-decoration: none;
+}
+
+.unisphere-navbar .nav-link:hover {
+    text-decoration: underline;
+}
+
+.unisphere-navbar .btn-join-now,
+.unisphere-navbar .btn-login {
+    background: white;
+    color: #089206;
+    border-radius: 20px;
+    padding: 6px 16px;
+    font-weight: bold;
+    border: 2px solid #089206;
+    transition: all 0.3s ease;
+    text-decoration: none;
+}
+
+.unisphere-navbar .btn-join-now:hover,
+.unisphere-navbar .btn-login:hover {
+    background: #089206;
+    color: white;
+}
+
+/* ========== JOB PORTAL ========== */
+.jobs-section {
+    max-width: 1100px;
+    margin: 2rem auto;
+    padding: 1rem;
+}
+
+.jobs-section h1 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+}
+
+.jobs-section p {
+    font-size: 1.1rem;
+    margin-bottom: 1.5rem;
+}
+
+/* Search bar */
+.job-search-form {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 2rem;
+}
+
+.job-search-form input {
+    padding: 10px;
+    font-size: 1rem;
+    flex: 1;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+}
+
+.job-search-form button {
+    padding: 10px 20px;
+    font-size: 1rem;
+    background-color: #089206;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.job-search-form button:hover {
+    background-color: #056c03;
+}
+
+/* Job Table Layout */
+.job-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1rem;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    background-color: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.job-table th,
+.job-table td {
+    padding: 14px 18px;
+    text-align: left;
+    border-bottom: 1px solid #eee;
+}
+
+.job-table th {
+    background-color: #fef7de;
+    font-size: 1rem;
+    color: #089206;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.job-table td .btn-view {
+    padding: 6px 14px;
+    background-color: #007BFF;
+    color: white;
+    text-decoration: none;
+    border-radius: 6px;
+    font-size: 0.9rem;
+}
+
+.job-table td .btn-view:hover {
+    background-color: #0056b3;
+}
+
+/* ========== FOOTER ========== */
+footer {
+    background-color: #089206;
+    color: white;
+    text-align: center;
+    padding: 15px;
+    font-size: 0.95rem;
+    margin-top: 4rem;
+}
+
+.job-details-section {
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background: #fef7de;
+    border: 1px solid #089206;
+    border-radius: 12px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+}
+
+.job-details-section h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    color: #089206;
+    text-align: center;
+}
+
+.job-info-box {
+    font-size: 1.1rem;
+    color: #333;
+    line-height: 1.7;
+}
+.form-container {
+    max-width: 700px;
+    margin: 50px auto;
+    background: #fff;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+}
+
+.form-title {
+    font-size: 2rem;
+    margin-bottom: 10px;
+    color: #089206;
+}
+
+.form-subtitle {
+    font-size: 1rem;
+    margin-bottom: 25px;
+    color: #666;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    font-weight: bold;
+    display: block;
+    margin-bottom: 6px;
+    color: #333;
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+    width: 100%;
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-size: 1rem;
+}
+
+.btn-submit {
+    background-color: #089206;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-weight: bold;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn-submit:hover {
+    background-color: #056c03;
+}
+
+.unisphere-projects-container {
+    max-width: 1000px;
+    margin: 40px auto;
+    padding: 20px;
+    background: #fff;
+}
+
+.projects-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.section-title {
+    font-size: 2rem;
+    color: #089206;
+}
+
+.project-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    list-style: none;
+    padding: 0;
+    margin-top: 20px;
+}
+
+.project-card {
+    background: #fef7de;
+    border: 1px solid #ccc;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 6px 12px rgba(0,0,0,0.05);
+    transition: transform 0.2s ease;
+}
+
+.project-card:hover {
+    transform: translateY(-4px);
+    background-color: #fffbe0;
+}
+
+.project-title {
+    font-size: 1.3rem;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.project-description {
+    color: #555;
+    margin-bottom: 10px;
+}
+
+.project-link {
+    color: #007bff;
+    text-decoration: underline;
+    font-weight: bold;
+}
+
+.project-meta {
+    font-size: 0.9rem;
+    color: #666;
+    margin-top: 10px;
+}
+
+.btn-success {
+    background-color: #089206;
+    color: white;
+    padding: 8px 16px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.btn-success:hover {
+    background-color: #056c03;
+}
+.project-form-container {
+    max-width: 700px;
+    margin: 40px auto;
+    padding: 30px;
+    background: #fef7de;
+    border-radius: 10px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+}
+
+.project-form-container h1 {
+    margin-bottom: 10px;
+    color: #089206;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 6px;
+    font-weight: bold;
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 1rem;
+}
+
+.btn-submit {
+    background-color: #089206;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.btn-submit:hover {
+    background-color: #056c03;
+}
+
+.landing_body {
+    background-image: url('/static/images/hero-bg.jpg');
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    color: white;
+}
+.hero-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 80vh;
+    text-align: center;
+}
+.hero-buttons .btn {
+    transition: 0.3s ease-in-out;
+}
+
+.hero-buttons .btn:hover {
+    transform: scale(1.1);
+    box-shadow: 0px 4px 12px rgba(0,0,0,0.2);
+}

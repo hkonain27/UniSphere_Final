@@ -1,0 +1,41 @@
+{% extends 'base/layout.html' %}
+{% load static %}
+
+{% block content %}
+<section class="groups-section">
+    <h1 class="section-title">🌍 Discover Groups</h1>
+    <p class="section-subtitle">Browse study, culture, or hobby groups created by fellow students</p>
+
+    <!-- 🔍 Search Filter -->
+    <form method="GET" class="group-search-form" style="margin-bottom: 20px;">
+        <input type="text" name="q" placeholder="Search by country or keyword..." value="{{ request.GET.q }}">
+        <button type="submit">Search</button>
+    </form>
+
+    <!-- 📦 Group Boxes -->
+    <div class="groups-container">
+        {% for group in groups %}
+        <div class="group-box" style="border: 1px solid #ddd; padding: 15px; margin-bottom: 15px; border-radius: 8px;">
+            <h3>📌 {{ group.name }}</h3>
+            <p>🌍 <strong>Country:</strong> {{ group.country }}</p>
+            <p>👥 <strong>Members:</strong> {{ group.members.count }}</p>
+
+            {% if user.profile in group.members.all %}
+                <p class="text-success">✅ You've joined this group.</p>
+                <form method="POST" action="{% url 'leave_group' group.id %}">
+                    {% csrf_token %}
+                    <button type="submit" class="btn btn-danger">Leave Group</button>
+                </form>
+            {% else %}
+                <form method="POST" action="{% url 'join_group' group.id %}">
+                    {% csrf_token %}
+                    <button type="submit" class="btn btn-outline-success">Join Group</button>
+                </form>
+            {% endif %}
+        </div>
+        {% empty %}
+        <p>No groups available at the moment. Try creating one!</p>
+        {% endfor %}
+    </div>
+</section>
+{% endblock %}

@@ -1,0 +1,58 @@
+{% extends 'base/layout.html' %}
+{% load static %}
+
+{% block content %}
+<section class="projects-section">
+    <h1>🚀 Projects</h1>
+    <p class="subtitle">Explore collaborative and individual projects from members of the UniSphere community. Whether you're showcasing your work or looking for inspiration, you're in the right place!</p>
+
+    <div class="project-actions">
+        <a href="{% url 'add_project' %}" class="btn-add-project">➕ Add New Project</a>
+    </div>
+
+    {% if projects %}
+    <div class="projects-container">
+        {% for project in projects %}
+        <div class="project-card">
+            <h3 class="project-title">💼 {{ project.title }}</h3>
+            <p><strong>Description:</strong> {{ project.description }}</p>
+            <p><strong>Tech Stack:</strong> {{ project.tech_stack }}</p>
+            <p><strong>Posted by:</strong> <a href="{% url 'user-profile' project.creator.id %}">{{ project.creator.username }}</a></p>
+
+            {% if request.user == project.creator %}
+            <form method="POST" action="{% url 'delete_project' project.id %}">
+                {% csrf_token %}
+                <button type="submit" class="btn btn-danger btn-sm mt-2">🗑 Delete Project</button>
+            </form>
+            {% endif %}
+
+            <div class="comments-section mt-4">
+                <h5>💬 Comments</h5>
+                {% if project.comments.all %}
+                    <ul class="comment-list">
+                        {% for comment in project.comments.all %}
+                            <li><strong>{{ comment.user.username }}:</strong> {{ comment.text }}</li>
+                        {% endfor %}
+                    </ul>
+                {% else %}
+                    <p class="text-muted">No comments yet.</p>
+                {% endif %}
+
+                {% if user.is_authenticated %}
+                <form method="POST" action="{% url 'add_comment' project.id %}">
+                    {% csrf_token %}
+                    <textarea name="text" class="form-control mt-2" rows="2" placeholder="Add a comment..." required></textarea>
+                    <button type="submit" class="btn btn-primary btn-sm mt-2">Comment</button>
+                </form>
+                {% else %}
+                <p class="text-muted">Login to comment.</p>
+                {% endif %}
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    {% else %}
+        <p class="no-projects">No projects posted yet. Be the first to share yours!</p>
+    {% endif %}
+</section>
+{% endblock %}

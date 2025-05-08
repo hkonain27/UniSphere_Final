@@ -1,0 +1,34 @@
+{% extends 'base/layout.html' %}
+
+{% block content %}
+<div class="project-form-container">
+    <h1>🚀 Add New Project</h1>
+    <p>Share your idea or collaboration opportunity with the UniSphere community.</p>
+
+    <form method="POST">
+        {% csrf_token %}
+
+        <div class="form-group">
+            <label for="id_title">Project Title</label>
+            {{ form.title }}
+        </div>
+
+        <div class="form-group">
+            <label for="id_description">Project Description</label>
+            {{ form.description }}
+        </div>
+
+        <div class="form-group">
+            <label for="id_technologies">Technologies Used</label>
+            {{ form.technologies }}
+        </div>
+
+        <div class="form-group">
+            <label for="id_collaboration_type">Type of Collaboration</label>
+            {{ form.collaboration_type }}
+        </div>
+
+        <button type="submit" class="btn-submit">Submit Project</button>
+    </form>
+</div>
+{% endblock %}

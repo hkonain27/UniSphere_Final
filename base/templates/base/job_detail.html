@@ -1,0 +1,16 @@
+{% extends 'base/layout.html' %}
+{% block content %}
+<section class="job-details-section" style="max-width: 800px; margin: 50px auto; padding: 30px; background: #f9f9f9; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+    <h1 style="font-size: 2.5rem; margin-bottom: 20px;">💼 Job Description</h1>
+    
+    <div class="job-info-box" style="font-size: 1.1rem;">
+        <p><strong>Position:</strong> {{ job.jobtitle }}</p>
+        <p><strong>Company:</strong> {{ job.compname }}</p>
+        <p><strong>Location:</strong> {{ job.location }}</p>
+        <p><strong>HQ:</strong> {{ job.complocation }}</p>
+        <p><strong>Description:</strong><br>{{ job.compdesc }}</p>
+    </div>
+
+    <a href="{% url 'job_search' %}" class="btn btn-secondary mt-4" style="margin-top: 20px; display: inline-block;">← Back to Job Listings</a>
+</section>
+{% endblock %}
