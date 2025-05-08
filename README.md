@@ -11,6 +11,7 @@ Personalized Student Profiles – Showcase your academic background, interests, 
 Verified Groups & Communities – Join or explore clubs, cultural groups, and student organizations.
 Housing Finder – Browse housing listings tailored for student budgets and preferences.
 Job & Project Listings – Search for campus jobs, internships, or group projects with smart filters.
+
 🛠 Tech Stack
 
 Frontend: HTML, CSS, Bootstrap
@@ -19,5 +20,6 @@ Project Management: Trello (Task Tracking & Team Collaboration)
 Version Control: Git & GitHub
 
 📁 Project Scope
+
 This project was developed to simulate a real-world team software development environment, following agile practices and emphasizing full-stack development, UI/UX principles, and database integration.
 
